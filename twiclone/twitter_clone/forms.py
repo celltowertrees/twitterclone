@@ -33,9 +33,6 @@ class AuthenticateForm(AuthenticationForm):
         return form
         
 
-# class Logout
-    
-    
 class PostForm(forms.ModelForm):
 
     def is_valid(self):
@@ -47,18 +44,3 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         exclude = ('poster', 'date', )
-        
-        
-# class EditForm(forms.ModelForm):
-    # old = Post.objects.get(pk=1)
-    # new = PostForm(request.POST, instance=old)
-    
-    # def is_valid(self):
-    
-    # new.save()
-    
-    # class Meta:
-        # model = Post
-        # fields = ['text',]
-        # exclude = ['poster',]
-                

@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseForbidden
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
@@ -64,20 +64,37 @@ def submit(request):
         return login(request)
           
     return redirect('feed:index')
+  
+  
+@login_required 
+def edit(request, post_id):
+    old = get_object_or_404(Post, pk=post_id)
+    if old.poster != request.user:
+        return HttpResponseForbidden()
+    else:
+        post = Post(poster=request.user)
 
+    if request.method == 'POST':
+        new = PostForm(data=request.POST, instance=post)
+        if new.is_valid():
+            post = new.save(commit=False)
+            old.text = post.text
+            post.save()
+            return render(request, 'twitter_clone/single_post.html', {'post': post, })
+    else:
+        post = PostForm(instance=post)
+    
+    return render(request, 'twitter_clone/single_post.html', {'post': post, })
+        
 
 @login_required
 def single_post(request, post_id):
+    post_form = PostForm()
     post = get_object_or_404(Post, pk=post_id)
-    return render(request, 'twitter_clone/single_post.html', {'post': post})
+    return render(request, 'twitter_clone/single_post.html', {'post': post, 'post_form': post_form, })
 
     
 @login_required
 def profile(request, user_id):
     post_user = get_object_or_404(User, pk=user_id)
-    return render(request, 'twitter_clone/single_user.html', {'post_user': post_user})
-    
-
-@login_required 
-def edit(request, post_id):
-    return HttpResponse("You are editing Post %s." % post_id)
+    return render(request, 'twitter_clone/single_user.html', {'post_user': post_user, })

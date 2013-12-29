@@ -4,7 +4,7 @@
 {% block content %}
 
 <section>
-<h2>You must Login somehow.</h2>
+<h2>Log in</h2>
 <form action="{% url 'feed:login_user' %}" method="POST">
     {% csrf_token %}
     {% for field in auth_form %}

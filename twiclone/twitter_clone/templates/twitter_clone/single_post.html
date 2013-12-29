@@ -1,11 +1,20 @@
 {% extends "twitter_clone/base.html" %}
 
 {% block content %}
-<h2>Single Post Details</h2>
-<h3>"{{ post.text }}"</h3>
-<ul>
-<li><strong>Posted by:</strong> <a href="{% url 'feed:profile' post.poster.id %}">{{ post.poster.username }}</a></li>
-<li><strong>Posted on:</strong> <time>{{ post.date }}</time></li>
-</ul>
+
+<article class="post">
+<strong>"{{ post.text }}"</strong> 
+&middot; 
+<a href="{% url 'feed:profile' post.poster.id %}">{{ post.poster.username }}</a></li>
+&middot;
+<time>{{ post.date }}</time>
+<form action="{% url 'feed:edit' post.id %}" method="POST">
+        {% csrf_token %}
+        {% for field in post_form %}
+            {{ field }}
+        {% endfor %}
+    <input type="submit" value="Edit" />
+</form>
+</article>
 
 {% endblock %}

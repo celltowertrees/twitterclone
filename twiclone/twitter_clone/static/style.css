@@ -1,0 +1,27 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    }
+    
+a, a:visited {
+    color:#516E54;
+    text-decoration:none;
+    }
+    
+a:hover {
+    text-decoration:underline;
+    }
+    
+hr {
+    border:#ddd 1px solid;
+    }
+    
+main {
+    padding:0 1em;
+    margin:0 auto;
+    max-width:40em;
+    }
+    
+article.post {
+    padding:1em;
+    border:#ddd 1px solid;
+    }
