@@ -24,4 +24,5 @@ class Post(models.Model):
         return self.text
         
     def was_published_recently(self):
-        return self.date >= timezone.now() - datetime.timedelta(minutes=5)
+        now = timezone.now()
+        return now - datetime.timedelta(minutes=5) <= self.date < now
