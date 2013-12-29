@@ -1,0 +1,30 @@
+{% extends "twitter_clone/base.html" %}
+
+{% block content %}
+
+<section>
+<h2>Create a Post</h2>
+    <form action="{% url 'feed:submit' %}" method="POST">
+        {% csrf_token %}
+        {{ post_form }}
+        <input type="submit" value="Submit" />
+    </form>
+</section>
+<hr />
+<section>
+    {% if feed %}
+        <ul>
+        {% for post in feed %}
+            <li>
+                <a href="{% url 'feed:profile' post.poster.id %}"><strong>{{ post.poster.username }}</strong></a>
+                &middot; 
+                <a href="{% url 'feed:single_post' post.id %}">{{ post.text }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No posts are available.</p>
+    {% endif %}
+</section>
+
+{% endblock %}

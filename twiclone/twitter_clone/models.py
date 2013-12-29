@@ -1,0 +1,27 @@
+from django.db import models
+import datetime
+from django.utils import timezone
+from django.contrib.auth.models import User
+
+
+class UserProfile(models.Model):
+
+    user = models.OneToOneField(User)
+    email = models.EmailField(max_length=254, unique=True)
+    followers = models.ManyToManyField("self", symmetrical=False)
+    
+    def __unicode__(self):
+        return self.email
+     
+    
+class Post(models.Model):
+
+    text = models.CharField(max_length=200)
+    date = models.DateTimeField(auto_now=True, blank=True)
+    poster = models.ForeignKey(User)
+    
+    def __unicode__(self):
+        return self.text
+        
+    def was_published_recently(self):
+        return self.date >= timezone.now() - datetime.timedelta(minutes=5)

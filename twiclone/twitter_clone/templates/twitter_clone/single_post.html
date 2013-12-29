@@ -1,0 +1,11 @@
+{% extends "twitter_clone/base.html" %}
+
+{% block content %}
+<h2>Single Post Details</h2>
+<h3>"{{ post.text }}"</h3>
+<ul>
+<li><strong>Posted by:</strong> <a href="{% url 'feed:profile' post.poster.id %}">{{ post.poster.username }}</a></li>
+<li><strong>Posted on:</strong> <time>{{ post.date }}</time></li>
+</ul>
+
+{% endblock %}
