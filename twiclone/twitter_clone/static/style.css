@@ -23,5 +23,21 @@ main {
     
 article.post {
     padding:1em;
+    margin:1em;
     border:#ddd 1px solid;
+    display:block;
+    }
+    
+section.center {
+    text-align:center;
+    }
+    
+aside.login {
+    display:inline;
+    }
+    
+ul.feed, ul.feed li {
+    padding:0;
+    margin:0;
+    list-style:none;
     }
