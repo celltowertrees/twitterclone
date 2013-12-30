@@ -2,19 +2,8 @@
 
 {% block content %}
 
-<article class="post">
-<strong>"{{ post.text }}"</strong> 
-&middot; 
-<a href="{% url 'feed:profile' post.poster.id %}">{{ post.poster.username }}</a></li>
-&middot;
-<time>{{ post.date }}</time>
-<form action="{% url 'feed:edit' post.id %}" method="POST">
-        {% csrf_token %}
-        {% for field in post_form %}
-            {{ field }}
-        {% endfor %}
-    <input type="submit" value="Edit" />
-</form>
-</article>
+<h1>Your post was created.</h1>
+
+{% include 'twitter_clone/block_post.html' %}
 
 {% endblock %}
