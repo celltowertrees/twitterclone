@@ -2,8 +2,12 @@ import datetime
 
 from django.test import TestCase
 from django.utils import timezone
+from django.core.urlresolvers import reverse
 
-from twitter_clone.models import Post
+from rebar.testing import flatten_to_dict
+
+from twitter_clone.models import Post, User
+from twitter_clone.forms import CreateUserForm, AuthenticateForm, PostForm
 
 
 class PostMethodTests(TestCase):
@@ -28,3 +32,44 @@ class PostMethodTests(TestCase):
         """
         recent_post = Post(date=timezone.now() - datetime.timedelta(minutes=2))
         self.assertEqual(recent_post.was_published_recently(), True)
+    
+    def test_is_not_editable(self):
+        """
+        should return HttpResponseForbidden() for posts that are not recently published
+        """
+        old_post = Post(date=timezone.now() - datetime.timedelta(minutes=6))
+        self.assertEqual(old_post.is_editable(), False)
+        
+    # def test_is_editable(self):
+    
+    
+# class LoginTests(TestCase):
+
+    # def user_is_logged_in(self):
+    
+    # def user_is_logged_out(self):
+    
+    # def user_can_post(self):
+    
+    # def user_can_edit(self):
+
+
+# class UserMethodTests(TestCase):
+    
+    # def username_is_email(self):
+
+
+# class FormTests(TestCase):
+    
+    # def test_post_published(self):
+    
+    # def test_post_edited(self):
+  
+  
+# class UrlTests(TestCase):
+
+
+# class ViewTests(TestCase):
+
+    
+    
