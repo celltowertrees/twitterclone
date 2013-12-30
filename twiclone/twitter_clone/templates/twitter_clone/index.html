@@ -2,24 +2,24 @@
 
 {% block content %}
 
-<section>
+<section class="center">
 <h2>Create a Post</h2>
     <form action="{% url 'feed:submit' %}" method="POST">
         {% csrf_token %}
-        {{ post_form }}
+        {% for field in post_form %}
+            {{ field }}
+        {% endfor %}
         <input type="submit" value="Submit" />
     </form>
 </section>
 <hr />
 <section>
     {% if feed %}
-        <ul>
+        <ul class="feed">
         {% for post in feed %}
-            <li>
-                <a href="{% url 'feed:profile' post.poster.id %}"><strong>{{ post.poster.username }}</strong></a>
-                &middot; 
-                <a href="{% url 'feed:single_post' post.id %}">{{ post.text }}</a>
-            </li>
+
+            <li>{% include 'twitter_clone/block_post.html' %}</li>
+
         {% endfor %}
         </ul>
     {% else %}
