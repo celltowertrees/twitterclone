@@ -1,0 +1,16 @@
+<article class="post">
+<strong>"{{ post.text }}"</strong> 
+&middot; 
+<a href="{% url 'feed:profile' post.poster.id %}">{{ post.poster.username }}</a>
+&middot;
+<time>{{ post.date }}</time>
+{% if post.is_editable %}
+    <form action="{% url 'feed:edit' post.id %}" method="POST">
+            {% csrf_token %}
+            {% for field in post_form %}
+                {{ field }}
+            {% endfor %}
+        <input type="submit" value="Edit" />
+    </form>
+{% endif %}
+</article>
