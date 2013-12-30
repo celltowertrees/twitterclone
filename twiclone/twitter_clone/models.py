@@ -26,3 +26,9 @@ class Post(models.Model):
     def was_published_recently(self):
         now = timezone.now()
         return now - datetime.timedelta(minutes=5) <= self.date < now
+
+    def is_editable(self):
+        if self.was_published_recently():
+            return True
+        else:
+            return False
