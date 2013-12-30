@@ -5,14 +5,14 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 
 from twitter_clone.forms import CreateUserForm, PostForm, AuthenticateForm
-from twitter_clone.models import Post, User
+from twitter_clone.models import Post, UserProfile
 
 
 def index(request, post_form=None):
     user = request.user
     if user.is_authenticated():
         post_form = PostForm()
-        feed = Post.objects.order_by('date')[:10]  
+        feed = Post.objects.order_by('-date')[:10]  
         return render(request, 'twitter_clone/index.html', {'post_form': post_form, 'feed': feed, })
     else:
         auth_form = AuthenticateForm()
@@ -26,12 +26,12 @@ def create_user(request):
         if form.is_valid():
             username = form.clean_username()
             password = form.clean_password2()
-            form.save()
-            user = authenticate(username=username, password=password)
+            f = form.save()
+            user = authenticate(username = username, password = password)
             login(request, user)
-            return redirect('feed:profile', {'username': username})
+            return redirect('feed:index')
         else:
-            return index(request, user_form=user_form)
+            return redirect('feed:index') # return error
     return redirect('feed:index')
  
  
@@ -59,7 +59,7 @@ def submit(request):
             post = form.save(commit=False)
             post.poster = request.user
             post.save()
-        return render(request, 'twitter_clone/single_post.html', {'post': post, })
+        return redirect('feed:single_post', post.id )
     else:
         return login(request)
           
@@ -69,23 +69,26 @@ def submit(request):
 @login_required 
 def edit(request, post_id):
     old = get_object_or_404(Post, pk=post_id)
-    if old.poster != request.user:
-        return HttpResponseForbidden()
-    else:
-        post = Post(poster=request.user)
+    if old.is_editable():
+        if old.poster != request.user:
+            return HttpResponseForbidden()
+        else:
+            post = Post(poster=request.user)
 
-    if request.method == 'POST':
-        new = PostForm(data=request.POST, instance=post)
-        if new.is_valid():
-            post = new.save(commit=False)
-            old.text = post.text
-            post.save()
-            return render(request, 'twitter_clone/single_post.html', {'post': post, })
-    else:
-        post = PostForm(instance=post)
+        if request.method == 'POST':
+            new = PostForm(data=request.POST, instance=post)
+            if new.is_valid():
+                post = new.save(commit=False)
+                old.text = post.text
+                old.save()
+                return redirect('feed:single_post', old.id )
+        else:
+            post = PostForm(instance=post)
     
-    return render(request, 'twitter_clone/single_post.html', {'post': post, })
-        
+        return redirect('feed:single_post')
+    else:
+        return HttpResponseForbidden()
+
 
 @login_required
 def single_post(request, post_id):
@@ -96,5 +99,17 @@ def single_post(request, post_id):
     
 @login_required
 def profile(request, user_id):
-    post_user = get_object_or_404(User, pk=user_id)
-    return render(request, 'twitter_clone/single_user.html', {'post_user': post_user, })
+    user = get_object_or_404(User, pk=user_id)
+    return render(request, 'twitter_clone/single_user.html', {'user': user, })
+
+
+# @login_required    
+# def follow(request):
+#     if request_method == 'POST':
+#         follow_id = request.POST.get('follow', False)
+#         if follow_id:
+#             try:
+#                 user = User.objects.get(id=follow_id)
+#                 request.user.UserProfile.followers.add(user.UserProfile)
+#             except redirect('feed:profile')
+                
