@@ -19,11 +19,7 @@ class CreateUserForm(UserCreationForm):
 class AuthenticateForm(AuthenticationForm):
     username = forms.CharField(widget=forms.widgets.TextInput(attrs={'placeholder': 'Username'}))
     password = forms.CharField(widget=forms.widgets.PasswordInput(attrs={'placeholder': 'Password'}))
-    
-#    class Meta:
-#        model = User
-#        fields = ['username', 'password',]
-        
+      
 
 class PostForm(forms.ModelForm):
 
