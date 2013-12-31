@@ -3,10 +3,11 @@ import datetime
 from django.test import TestCase
 from django.utils import timezone
 from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 
 from rebar.testing import flatten_to_dict
 
-from twitter_clone.models import Post, User
+from twitter_clone.models import Post, UserProfile
 from twitter_clone.forms import CreateUserForm, AuthenticateForm, PostForm
 
 
@@ -54,7 +55,20 @@ class PostMethodTests(TestCase):
     # def user_can_edit(self):
 
 
-# class UserMethodTests(TestCase):
+class UserMethodTests(TestCase):
+
+    def test_follow(self):
+        """
+        should assert that user2 is user1's follower
+        """
+        bob = User(username="bob")
+        joe = User(username="joe")
+        user1 = UserProfile(user=bob)
+        user2 = UserProfile(user=joe)
+        user1.followers.add(user2)
+        
+        self.assertEqual(user1.followers.get(username="joe"), user2)
+        
     
     # def username_is_email(self):
 
