@@ -4,7 +4,7 @@
 <a href="{% url 'feed:profile' post.poster.id %}">{{ post.poster.username }}</a>
 &middot;
 <time>{{ post.date }}</time>
-{% if post.is_editable %}
+{% if post.is_editable and user == post.poster %}
     <form action="{% url 'feed:edit' post.id %}" method="POST">
             {% csrf_token %}
             {% for field in post_form %}
