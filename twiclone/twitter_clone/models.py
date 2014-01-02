@@ -7,11 +7,11 @@ from django.contrib.auth.models import User
 class UserProfile(models.Model):
 
     user = models.OneToOneField(User)
-    email = models.EmailField(max_length=254, unique=True)
-    followers = models.ManyToManyField("self", symmetrical=False)
+    followers = models.ManyToManyField("self", symmetrical=False, related_name="followed_by")
     
     def __unicode__(self):
-        return self.email
+        return self.user.username
+
      
     
 class Post(models.Model):
@@ -32,3 +32,4 @@ class Post(models.Model):
             return True
         else:
             return False
+            
