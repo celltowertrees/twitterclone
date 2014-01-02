@@ -4,6 +4,8 @@ from django.test import TestCase
 from django.utils import timezone
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+from django.core.cache import cache
+from django.core.cache.utils import make_template_fragment_key
 
 from rebar.testing import flatten_to_dict
 
@@ -41,18 +43,15 @@ class PostMethodTests(TestCase):
         old_post = Post(date=timezone.now() - datetime.timedelta(minutes=6))
         self.assertEqual(old_post.is_editable(), False)
         
-    # def test_is_editable(self):
-    
-    
-# class LoginTests(TestCase):
-
-    # def user_is_logged_in(self):
-    
-    # def user_is_logged_out(self):
-    
-    # def user_can_post(self):
-    
-    # def user_can_edit(self):
+    def test_cache(self):
+        """
+        should return that the cache has been cleared after a post has been edited
+        """
+        old_post = Post(date=timezone.now(), text="Old text")
+        new_post = Post(date=timezone.now(), text="New text")
+        key = make_template_fragment_key('posttemplate', [old_post]) 
+        self.assertEqual(cache.get(key), None)
+        
 
 
 class UserMethodTests(TestCase):
@@ -63,11 +62,19 @@ class UserMethodTests(TestCase):
         """
         bob = User(username="bob")
         joe = User(username="joe")
-        user1 = UserProfile(user=bob)
-        user2 = UserProfile(user=joe)
-        user1.followers.add(user2)
         
-        self.assertEqual(user1.followers.get(username="joe"), user2)
+        user1 = bob.get_profile()
+        user1.followers.add(joe)
+        
+        self.assertEqual(user1.followers.get(user=joe), joe)
+        
+    # def user_is_logged_in(self):
+    
+    # def user_is_logged_out(self):
+    
+    # def user_can_post(self):
+    
+    # def user_can_edit(self):
         
     
     # def username_is_email(self):
