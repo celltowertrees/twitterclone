@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse, HttpResponseForbidden
+from django.http import HttpResponse, HttpResponseForbidden, Http404
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.contrib.auth import login, authenticate, logout
+from django.core.exceptions import ObjectDoesNotExist
+from django.core.cache import cache
 
 from twitter_clone.forms import CreateUserForm, PostForm, AuthenticateForm
 from twitter_clone.models import Post, UserProfile
@@ -12,13 +14,13 @@ def index(request, post_form=None):
     user = request.user
     if user.is_authenticated():
         post_form = PostForm()
-        feed = Post.objects.order_by('-date')[:10]  
+        feed = Post.objects.order_by('-date')[:10] 
         return render(request, 'twitter_clone/index.html', {'post_form': post_form, 'feed': feed, })
     else:
         auth_form = AuthenticateForm()
         user_form = CreateUserForm()
         return render(request, 'twitter_clone/login.html', {'auth_form': auth_form, 'user_form': user_form, })
-
+    
 
 def create_user(request):
     form = CreateUserForm(data=request.POST)
@@ -31,7 +33,7 @@ def create_user(request):
             login(request, user)
             return redirect('feed:index')
         else:
-            return redirect('feed:index') # return error
+            return redirect('feed:server_error') 
     return redirect('feed:index')
  
  
@@ -42,7 +44,8 @@ def login_user(request):
             login(request, form.get_user())
             return redirect('feed:index')
         else:
-            return index(request, auth_form=form)
+            return redirect('feed:not_found')
+    else:  
         return redirect('feed:index')
         
 
@@ -85,7 +88,7 @@ def edit(request, post_id):
         else:
             post = PostForm(instance=post)
     
-        return redirect('feed:single_post')
+        return redirect('feed:single_post', old.id )
     else:
         return HttpResponseForbidden()
 
@@ -99,17 +102,26 @@ def single_post(request, post_id):
     
 @login_required
 def profile(request, user_id):
-    user = get_object_or_404(User, pk=user_id)
-    return render(request, 'twitter_clone/single_user.html', {'user': user, })
+    user_p = get_object_or_404(User, pk=user_id)
+    return render(request, 'twitter_clone/single_user.html', {'user_p': user_p, })
 
 
-# @login_required    
-# def follow(request):
-#     if request_method == 'POST':
-#         follow_id = request.POST.get('follow', False)
-#         if follow_id:
-#             try:
-#                 user = User.objects.get(id=follow_id)
-#                 request.user.UserProfile.followers.add(user.UserProfile)
-#             except redirect('feed:profile')
-                
+@login_required    
+def follow(request):
+    if request.method == 'POST':
+        follow_user = request.POST.get('follow', False)
+        if follow_user:
+            try:
+                req = request.user
+                req.followers.add(follow_user)
+            except ObjectDoesNotExist:
+                raise Http404
+        return redirect('feed:profile', follow_user )
+ 
+        
+def not_found(request):
+    return render(request, 'twitter_clone/404.html')
+    
+
+def server_error(request):
+    return render(request, 'twitter_clone/500.html')
