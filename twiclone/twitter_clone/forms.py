@@ -1,8 +1,7 @@
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-from django.utils.html import strip_tags
-from twitter_clone.models import Post
+from twitter_clone.models import Post, UserProfile
 
 
 class CreateUserForm(UserCreationForm):
