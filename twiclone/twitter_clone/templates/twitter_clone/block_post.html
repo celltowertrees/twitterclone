@@ -1,3 +1,6 @@
+{% load cache %}
+{% cache 500 posttemplate post %}
+
 <article class="post">
 <strong>"{{ post.text }}"</strong> 
 &middot; 
@@ -14,3 +17,5 @@
     </form>
 {% endif %}
 </article>
+
+{% endcache %}
