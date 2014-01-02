@@ -4,13 +4,17 @@
 <h2>User Profile</h2>
 
 <ul>
-<li><strong>Username:</strong> {{ user.username }}</li>
-<li><strong>Followers:</strong> {{ user.followers }}</li>
+<li><strong>Username:</strong> {{ user_p.username }}</li>
+<li><strong>Followers:</strong> 
+{% for name in user_p.followers %}
+    {{ name.id }}
+{% endfor %}
+</li>
 </ul>
 
 <form action="{% url 'feed:follow' %}" method="post">
     {% csrf_token %}
-    <input type="hidden" name="follow" value="{{ user.id }}">
+    <input type="hidden" name="follow" value="{{ user_p.user }}">
     <input type="submit" value="Follow">
 </form>
 
