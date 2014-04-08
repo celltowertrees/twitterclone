@@ -5,18 +5,18 @@
     <title>Twitter Clone</title>
 </head>
 <body>
-    <header>
+    <header class="header">
         <h1><a href="{% url 'feed:index' %}">Twitter Clone Feed</a></h1>
+        <aside class="login">
+            {% if user.is_authenticated %}
+                Logged in as {{ user.email }}.
+                <form action="{% url 'feed:logout_user' %}" method="POST">
+                {% csrf_token %}
+                    <input type="submit" value="Logout" />
+                </form>
+            {% endif %}
+        </aside>
     </header>
-    <aside class="login">
-        {% if user.is_authenticated %}
-            Logged in as {{ user.username }}.
-            <form action="{% url 'feed:logout_user' %}" method="POST">
-            {% csrf_token %}
-                <input type="submit" value="Logout" />
-            </form>
-        {% endif %}
-    </aside>
     <hr />
     <main>
         

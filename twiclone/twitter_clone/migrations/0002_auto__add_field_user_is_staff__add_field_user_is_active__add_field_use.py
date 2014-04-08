@@ -8,68 +8,31 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'User'
-        db.create_table(u'twitter_clone_user', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('password', self.gf('django.db.models.fields.CharField')(max_length=128)),
-            ('last_login', self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime.now)),
-            ('is_superuser', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('email', self.gf('django.db.models.fields.EmailField')(unique=True, max_length=75)),
-        ))
-        db.send_create_signal(u'twitter_clone', ['User'])
+        # Adding field 'User.is_staff'
+        db.add_column(u'twitter_clone_user', 'is_staff',
+                      self.gf('django.db.models.fields.BooleanField')(default=False),
+                      keep_default=False)
 
-        # Adding M2M table for field groups on 'User'
-        m2m_table_name = db.shorten_name(u'twitter_clone_user_groups')
-        db.create_table(m2m_table_name, (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('user', models.ForeignKey(orm[u'twitter_clone.user'], null=False)),
-            ('group', models.ForeignKey(orm[u'auth.group'], null=False))
-        ))
-        db.create_unique(m2m_table_name, ['user_id', 'group_id'])
+        # Adding field 'User.is_active'
+        db.add_column(u'twitter_clone_user', 'is_active',
+                      self.gf('django.db.models.fields.BooleanField')(default=True),
+                      keep_default=False)
 
-        # Adding M2M table for field user_permissions on 'User'
-        m2m_table_name = db.shorten_name(u'twitter_clone_user_user_permissions')
-        db.create_table(m2m_table_name, (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('user', models.ForeignKey(orm[u'twitter_clone.user'], null=False)),
-            ('permission', models.ForeignKey(orm[u'auth.permission'], null=False))
-        ))
-        db.create_unique(m2m_table_name, ['user_id', 'permission_id'])
-
-        # Adding M2M table for field followers on 'User'
-        m2m_table_name = db.shorten_name(u'twitter_clone_user_followers')
-        db.create_table(m2m_table_name, (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('from_user', models.ForeignKey(orm[u'twitter_clone.user'], null=False)),
-            ('to_user', models.ForeignKey(orm[u'twitter_clone.user'], null=False))
-        ))
-        db.create_unique(m2m_table_name, ['from_user_id', 'to_user_id'])
-
-        # Adding model 'Post'
-        db.create_table(u'twitter_clone_post', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('text', self.gf('django.db.models.fields.CharField')(max_length=200)),
-            ('date', self.gf('django.db.models.fields.DateTimeField')(auto_now=True, blank=True)),
-            ('poster', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['twitter_clone.User'])),
-        ))
-        db.send_create_signal(u'twitter_clone', ['Post'])
+        # Adding field 'User.date_joined'
+        db.add_column(u'twitter_clone_user', 'date_joined',
+                      self.gf('django.db.models.fields.DateTimeField')(default=datetime.datetime(2014, 1, 2, 0, 0)),
+                      keep_default=False)
 
 
     def backwards(self, orm):
-        # Deleting model 'User'
-        db.delete_table(u'twitter_clone_user')
+        # Deleting field 'User.is_staff'
+        db.delete_column(u'twitter_clone_user', 'is_staff')
 
-        # Removing M2M table for field groups on 'User'
-        db.delete_table(db.shorten_name(u'twitter_clone_user_groups'))
+        # Deleting field 'User.is_active'
+        db.delete_column(u'twitter_clone_user', 'is_active')
 
-        # Removing M2M table for field user_permissions on 'User'
-        db.delete_table(db.shorten_name(u'twitter_clone_user_user_permissions'))
-
-        # Removing M2M table for field followers on 'User'
-        db.delete_table(db.shorten_name(u'twitter_clone_user_followers'))
-
-        # Deleting model 'Post'
-        db.delete_table(u'twitter_clone_post')
+        # Deleting field 'User.date_joined'
+        db.delete_column(u'twitter_clone_user', 'date_joined')
 
 
     models = {
@@ -102,10 +65,13 @@ class Migration(SchemaMigration):
         },
         u'twitter_clone.user': {
             'Meta': {'object_name': 'User'},
+            'date_joined': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2014, 1, 2, 0, 0)'}),
             'email': ('django.db.models.fields.EmailField', [], {'unique': 'True', 'max_length': '75'}),
             'followers': ('django.db.models.fields.related.ManyToManyField', [], {'related_name': "'followed_by'", 'symmetrical': 'False', 'to': u"orm['twitter_clone.User']"}),
             'groups': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'related_name': "u'user_set'", 'blank': 'True', 'to': u"orm['auth.Group']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'is_active': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
+            'is_staff': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'is_superuser': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'last_login': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
             'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),

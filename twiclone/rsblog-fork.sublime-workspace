@@ -1,0 +1,566 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "rsblog-fork/forms.py",
+			"settings":
+			{
+				"buffer_size": 619,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "rsblog-fork/templates/rsblog-fork/base.html",
+			"settings":
+			{
+				"buffer_size": 234,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "rsblog-fork/urls.py",
+			"settings":
+			{
+				"buffer_size": 263,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "rsblog-fork/templates/rsblog-fork/index.html",
+			"settings":
+			{
+				"buffer_size": 347,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "rsblog-fork/views.py",
+			"settings":
+			{
+				"buffer_size": 677,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "twitter_clone/views.py",
+			"settings":
+			{
+				"buffer_size": 4093,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "rsblog-fork/models.py",
+			"settings":
+			{
+				"buffer_size": 565,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/kmonso/Repositories/rankandstyle/website/rsblog/forms.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/rsblog/models.py",
+		"/Users/kmonso/Repositories/assignment/twiclone/twitter_clone/forms.py",
+		"/Users/kmonso/Repositories/assignment/twiclone/twiclone/urls.py",
+		"/Users/kmonso/Repositories/assignment/twiclone/rsblog-fork/templates/rsblog/index.html",
+		"/Users/kmonso/Repositories/assignment/twiclone/rsblog-fork/templates/rsblog/base.html",
+		"/Users/kmonso/Repositories/assignment/twiclone/twiclone/settings.py",
+		"/Users/kmonso/Repositories/assignment/twiclone/rsblog-fork/templates/rsblog/category.html",
+		"/Users/kmonso/Repositories/assignment/twiclone/twitter_clone/urls.py",
+		"/Users/kmonso/Repositories/assignment/twiclone/rsblog-fork/__init__.py",
+		"/Users/kmonso/Repositories/assignment/twiclone/twitter_clone/models.py",
+		"/Users/kmonso/Repositories/assignment/twiclone/rsblog-fork/migrations/0001_initial.py",
+		"/Users/kmonso/Repositories/assignment/twiclone/rsblog-fork/migrations/__init__.py",
+		"/Users/kmonso/Repositories/assignment/twiclone/manage.py",
+		"/Users/kmonso/Repositories/bot/bot/dialogue.txt",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/master.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/master_with_bottom.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/rsblog/templates/rsblog/category.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/rsblog/templates/rsblog/giveaways.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/rsblog/templates/rsblog/listful.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/views/main.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/models/rns.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/rns/urls.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/rscms/models/main.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/urls/main.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/rsblog/templates/index.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/list.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/rns/settings.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/invitations/urls.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/rscms/urls.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/mobileweb/templates/mobile/website/list.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/manage.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/addthis_fragment.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/static/website/less/vars.less",
+		"/Users/kmonso/Repositories/rankandstyle/website/mobileweb/static/mobile/less/list.less",
+		"/Users/kmonso/Repositories/rankandstyle/website/mobileweb/templates/mobile/master.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/mobileweb/templates/mobile/header.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/mobileweb/static/mobile/less/components/header.less",
+		"/Users/kmonso/Repositories/rankandstyle/website/mobileweb/static/mobile/js/mobile.js",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/static/website/js/misc.js",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/static/website/less/components/list.less",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/addthis_script.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/mobileweb/templates/mobile/bottom.html",
+		"/Users/kmonso/Repositories/rankandstyle/mobile.js",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/categories.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/static/website/less/main.less",
+		"/Users/kmonso/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/static/website/js/addthis_custom.js",
+		"/Users/kmonso/Repositories/rankandstyle/website/mobileweb/templates/mobile/footer.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/about.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/algorithm.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/static/website/less/components/navbar.less",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/navbar.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/static/website/less/special/about.less",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/static/website/less/layout.less",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/static/website/less/components/flatpages.less",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/static/website/less/components/bottom.less",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/static/website/less/special/category.less",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/header.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/utils/search.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templatetags/category_lists.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/rns/local_settings.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/ads/rect_300_250.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/small_list_item_fragment.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/searchviews/facets.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/search.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/search_indexes.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/searchviews/__init__.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/sitemaps/sitemaps.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templatetags/list_products.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/forms/main.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/apache-solr-3.5.0/example/solr/conf/schema.xml",
+		"/Users/kmonso/Repositories/rankandstyle/website/apache-solr-3.5.0/schema.xml",
+		"/Users/kmonso/Repositories/rankandstyle/website/rscms/static/rscms/js/index.js",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/small_list_item_fragment_ajax.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/tag.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/urls/favorites.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/context_processors.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/urls/account.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/pager.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/thank_you.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/overlay.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/popup.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templatetags/elsewhere.py",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/flatpages/default_shim.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/flatpages/default.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/faq.html",
+		"/Users/kmonso/Repositories/rankandstyle/website/website/templates/website/careers.html",
+		"/Users/kmonso/Repositories/twitteressays/twitteressays/static/css/style.scss",
+		"/Users/kmonso/Repositories/twitteressays/twitteressays/templates/essay.html",
+		"/Users/kmonso/Repositories/twitteressays/twitteressays/templates/index.html",
+		"/Users/kmonso/Repositories/twitteressays/twitteressays/app.py",
+		"/Users/kmonso/Repositories/twitteressays/twitteressays/index.html",
+		"/Users/kmonso/Repositories/twitteressays/twitteressays/write.py",
+		"/Users/kmonso/Desktop/Katz/oldcss.css",
+		"/Users/kmonso/georef_org/georef_theme/templates/includes/search_form.html"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"post",
+			"MenuCategory",
+			"category",
+			"social",
+			"rns",
+			"rns.count",
+			"slide",
+			"left",
+			"32",
+			"left",
+			"license",
+			"fragment",
+			"comments",
+			"name",
+			"vertical",
+			"restart",
+			"comments",
+			"ul",
+			"popular",
+			"facet",
+			"categories",
+			"menucategory",
+			"list",
+			"border",
+			"most-popular",
+			"img",
+			"search",
+			"category",
+			"list_set",
+			"MenuCategory",
+			"category",
+			"MenuCategory",
+			"more-lists",
+			"RequestContext",
+			"tag",
+			"whyinlist",
+			"flatpages",
+			"tag",
+			":",
+			"'",
+			"\"",
+			"'Hello'': \" Hello there, come here often?\"\n'no': \"thats a shame\"\n\n'yes': \"Then you know what to expect\"\n\n\n'How are you': \n\n:\"Im Great, but I'm really jealous of my friend has been earning well over $2,755 every 30 days making extremely easy websites\"\n\n:I feel kind of bloated today. Maybe I should try one of those super diets you always hear about. Even my closest friends rave about how they have lost 40 pounds in 3 months.\n\n:Felling like a champion. There is nothing like being in your early twenties\"\n\n: \"Feeling kind of torn up over the recent MoMA show. I can't believe how far they've bent over backwards to get this rauschenburg paintings\"\n\n:Great actually, I just found out my cousin from Africa inherited a large some of money. His wealthy uncle just passed away and left him the rights to his diamond mine in Nigeria. The only problem is we need an american bank account to get the money out of the country and keep it from getting taxed heavily\"\n\n'Kind of down. My sex life has been super dull lately. I wish I could find some of those erection pills I hear so much about. Can you provide me with any information?\"\n\n' Really embarrassed, I can't have anything more than an average normal sex life because of my average sized penis. Aren't there drugs on the market that can extend your penis but up to four inches\"\n\n'Whats up'\n\n:\"NM wussup witchu\"\n\n'Buggin out man. I've seen UFO's over my house the past couple of nights\"\n\n:\" Chillin. Browsing these  Get Cash Quick Forums. Seems like its full of Scammers trig to earn a quick buck\"\n\n'What are you thinking about'\n\nIm thinking about those cool new iPads i hear so much about. \n\n\nIm thinking about how easy it is to make a money transfer",
+			"dropdown-menu",
+			"btn-primary",
+			"btn",
+			"h1",
+			"input[type=\"text\"]",
+			"button",
+			"search",
+			"input",
+			"hr",
+			"article"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"item",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "rsblog-fork/forms.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 619,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								618,
+								618
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "rsblog-fork/templates/rsblog-fork/base.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 234,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								108,
+								108
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "rsblog-fork/urls.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 263,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								263,
+								263
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "rsblog-fork/templates/rsblog-fork/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 347,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23,
+								23
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "rsblog-fork/views.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 677,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								676,
+								676
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "twitter_clone/views.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4093,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 617.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "rsblog-fork/models.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 565,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								517,
+								517
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "rsblog-fork.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"~/Repositories/rankandstyle/rsblog.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

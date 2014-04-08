@@ -2,6 +2,10 @@ body {
     font-family: Helvetica, Arial, sans-serif;
     }
     
+.header {
+    text-align:center;
+    }
+    
 a, a:visited {
     color:#516E54;
     text-decoration:none;
@@ -26,6 +30,19 @@ article.post {
     margin:1em;
     border:#ddd 1px solid;
     display:block;
+    text-align:center;
+    }
+    
+article.post .text {
+    font-size:1.25em;
+    color:#454545;
+    display:block;
+    padding:.2em;
+    }
+
+.meta {
+    font-size:.85em;
+    padding:.5em;
     }
     
 section.center {

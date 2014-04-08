@@ -3,13 +3,12 @@ import datetime
 from django.test import TestCase
 from django.utils import timezone
 from django.core.urlresolvers import reverse
-from django.contrib.auth.models import User
 from django.core.cache import cache
 from django.core.cache.utils import make_template_fragment_key
 
 from rebar.testing import flatten_to_dict
 
-from twitter_clone.models import Post, UserProfile
+from twitter_clone.models import Post, User, Relationship, RELATIONSHIP_FOLLOWING
 from twitter_clone.forms import CreateUserForm, AuthenticateForm, PostForm
 
 
@@ -17,7 +16,7 @@ class PostMethodTests(TestCase):
 
     def test_was_published_recently_with_future_post(self):
         """
-        was_published_recently should return False for posts that have a date from the future
+        was_published_recently() should return False for posts that have a date from the future
         """
         future_post = Post(date=timezone.now() + datetime.timedelta(days=30))
         self.assertEqual(future_post.was_published_recently(), False)
@@ -58,39 +57,17 @@ class UserMethodTests(TestCase):
 
     def test_follow(self):
         """
-        should assert that user2 is user1's follower
+        should assert that joe is bob's follower
         """
-        bob = User(username="bob")
-        joe = User(username="joe")
+        bob = User.objects.create(email="bob@bob.com")
+        joe = User.objects.create(email="joe@joe.com")
         
-        user1 = bob.get_profile()
-        user1.followers.add(joe)
+        joe.add_relationship(bob, RELATIONSHIP_FOLLOWING)
         
-        self.assertEqual(user1.followers.get(user=joe), joe)
+        def iterate(list):
+            for i in list:
+                return i
         
-    # def user_is_logged_in(self):
-    
-    # def user_is_logged_out(self):
-    
-    # def user_can_post(self):
-    
-    # def user_can_edit(self):
+        self.assertEqual(iterate(bob.get_followers()), joe)
         
-    
-    # def username_is_email(self):
-
-
-# class FormTests(TestCase):
-    
-    # def test_post_published(self):
-    
-    # def test_post_edited(self):
-  
-  
-# class UrlTests(TestCase):
-
-
-# class ViewTests(TestCase):
-
-    
     

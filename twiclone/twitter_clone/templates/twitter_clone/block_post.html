@@ -2,11 +2,9 @@
 {% cache 500 posttemplate post %}
 
 <article class="post">
-<strong>"{{ post.text }}"</strong> 
-&middot; 
-<a href="{% url 'feed:profile' post.poster.id %}">{{ post.poster.username }}</a>
-&middot;
-<time>{{ post.date }}</time>
+<strong class="text">"{{ post.text }}"</strong> 
+<br />
+
 {% if post.is_editable and user == post.poster %}
     <form action="{% url 'feed:edit' post.id %}" method="POST">
             {% csrf_token %}
@@ -16,6 +14,12 @@
         <input type="submit" value="Edit" />
     </form>
 {% endif %}
+
+<aside class="meta">
+<a href="{% url 'feed:profile' post.poster.id %}">{{ post.poster.email }}</a>
+&middot;
+<time>{{ post.date }}</time>
+</aside>
 </article>
 
 {% endcache %}

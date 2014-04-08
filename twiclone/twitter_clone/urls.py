@@ -11,4 +11,6 @@ urlpatterns = patterns('twitter_clone.views',
     url(r'^submit/$', views.submit, name="submit"),
     url(r'^login/$', views.login_user, name="login_user"),
     url(r'^logout/$', views.logout_user, name="logout_user"),
+    url(r'^notfound/$', views.not_found, name="not_found"),
+    url(r'^error/$', views.server_error, name="server_error"),
 )

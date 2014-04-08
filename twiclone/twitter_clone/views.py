@@ -2,12 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseForbidden, Http404
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.cache import cache
 
 from twitter_clone.forms import CreateUserForm, PostForm, AuthenticateForm
-from twitter_clone.models import Post, UserProfile
+from twitter_clone.models import Post, User
 
 
 def index(request, post_form=None):
@@ -26,10 +25,10 @@ def create_user(request):
     form = CreateUserForm(data=request.POST)
     if request.method == 'POST':
         if form.is_valid():
-            username = form.clean_username()
+            email = form.clean_email()
             password = form.clean_password2()
             f = form.save()
-            user = authenticate(username = username, password = password)
+            user = authenticate(email = email, password = password)
             login(request, user)
             return redirect('feed:index')
         else:
@@ -112,11 +111,13 @@ def follow(request):
         follow_user = request.POST.get('follow', False)
         if follow_user:
             try:
+                follow = User.objects.get(id=follow_user)
                 req = request.user
-                req.followers.add(follow_user)
+                from twitter_clone.models import RELATIONSHIP_FOLLOWING
+                req.add_relationship(follow, RELATIONSHIP_FOLLOWING)
             except ObjectDoesNotExist:
                 raise Http404
-        return redirect('feed:profile', follow_user )
+        return redirect('feed:profile', follow.id )
  
         
 def not_found(request):
